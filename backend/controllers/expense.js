@@ -5,7 +5,7 @@ exports.addExpense = async (req, res) => {
   // HTTP isteğinden veriler alınıyor
   const { title, amount, category, description, date } = req.body;
 
-  // kullanıcının gönderdiği gelir bilgilerini alarak bir income nesnesi oluşturduk
+  // kullanıcının gönderdiği gider bilgilerini alarak bir expense nesnesi oluşturduk
   const expense = ExpenseSchema({
     title,
     amount,
