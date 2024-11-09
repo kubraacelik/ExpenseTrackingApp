@@ -8,7 +8,7 @@ import { plus } from "../../utils/Icons";
 
 //! gelir ekleme formu oluşturur
 function Form() {
-  const { addIncome } = useGlobalContext();
+  const { addIncome, getIncomes } = useGlobalContext();
 
   // formdaki tüm girdi değerlerini tutar
   const [inputState, setInputState] = useState({
@@ -31,6 +31,13 @@ function Form() {
     e.preventDefault();
     // addIncome fonksiyonu çağrılır ve form verilerini (inputState) gönderir
     addIncome(inputState);
+    setInputState({
+      title: "",
+      amount: "",
+      date: "",
+      category: "",
+      description: "",
+    });
   };
 
   return (
@@ -134,6 +141,12 @@ const FormStyled = styled.form`
   }
   .input-control {
     input {
+      width: 100%;
+    }
+  }
+
+    input,
+    .react-datepicker-wrapper {
       width: 100%;
     }
   }
