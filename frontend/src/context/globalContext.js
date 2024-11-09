@@ -14,10 +14,12 @@ export const GlobalProvider = ({ children }) => {
 
   // yeni bir gelir eklemek için kullanılır
   const addIncome = async (income) => {
-    const response = await axios.post(`${BASE_URL}add-income`, income)
+    const response = await axios
+      .post(`${BASE_URL}add-income`, income)
       .catch((err) => {
         setError(err.response.data.message);
       });
+    getIncomes();
   };
 
   // tüm gelir verilerini alır
@@ -27,12 +29,30 @@ export const GlobalProvider = ({ children }) => {
     console.log(response.data);
   };
 
+  // gelir silmek için kullanılır
+  const deleteIncome = async (id) => {
+    const res = await axios.delete(`${BASE_URL}delete-income/${id}`);
+    getIncomes();
+  };
+
+  // toplam gelir miktarını verir
+  const totalIncome = () => {
+    let totalIncome = 0;
+    incomes.forEach((income) => {
+      totalIncome += income.amount;
+    });
+
+    return totalIncome;
+  };
+
   return (
     <GlobalContext.Provider
       value={{
         addIncome,
         getIncomes,
         incomes,
+        deleteIncome,
+        totalIncome
       }}
     >
       {children}
