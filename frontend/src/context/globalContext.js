@@ -12,6 +12,7 @@ export const GlobalProvider = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
   const [error, setError] = useState(null);
 
+  //! calculate incomes
   // yeni bir gelir eklemek için kullanılır
   const addIncome = async (income) => {
     const response = await axios
@@ -45,6 +46,40 @@ export const GlobalProvider = ({ children }) => {
     return totalIncome;
   };
 
+    //! calculate expenses
+  // yeni bir gider eklemek için kullanılır
+  const addExpense = async (expense) => {
+    const response = await axios
+      .post(`${BASE_URL}add-expense`, expense)
+      .catch((err) => {
+        setError(err.response.data.message);
+      });
+    getExpenses();
+  };
+
+  // tüm gider verilerini alır
+  const getExpenses = async () => {
+    const response = await axios.get(`${BASE_URL}get-expenses`);
+    setExpenses(response.data);
+    console.log(response.data);
+  };
+
+  // gider silmek için kullanılır
+  const deleteExpense = async (id) => {
+    const res = await axios.delete(`${BASE_URL}delete-expense/${id}`);
+    getExpenses();
+  };
+
+  // toplam gider miktarını verir
+  const totalExpenses = () => {
+    let totalExpense = 0;
+    expenses.forEach((expense) => {
+      totalExpense += expense.amount;
+    });
+
+    return totalExpense;
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -52,7 +87,12 @@ export const GlobalProvider = ({ children }) => {
         getIncomes,
         incomes,
         deleteIncome,
-        totalIncome
+        totalIncome,
+        addExpense,
+        getExpenses,
+        expenses,
+        deleteExpense,
+        totalExpenses
       }}
     >
       {children}
