@@ -8,7 +8,7 @@ import { plus } from "../../utils/Icons";
 
 //! gider ekleme formu oluşturur
 function ExpenseForm() {
-  const { addExpense } = useGlobalContext();
+  const { addExpense, error, setError } = useGlobalContext();
 
   // formdaki tüm girdi değerlerini tutar
   const [inputState, setInputState] = useState({
@@ -24,6 +24,7 @@ function ExpenseForm() {
   // form elemanlarının değerlerini günceller
   const handleInput = (name) => (e) => {
     setInputState({ ...inputState, [name]: e.target.value });
+    setError("");
   };
 
   // form gönderildiğinde çalışır
@@ -42,6 +43,7 @@ function ExpenseForm() {
 
   return (
     <ExpenseFormStyled onSubmit={handleSubmit}>
+      {error && <p className="error">{error}</p>}
       <div className="input-control">
         <input
           type="text"
