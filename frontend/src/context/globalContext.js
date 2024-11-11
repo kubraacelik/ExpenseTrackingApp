@@ -46,7 +46,7 @@ export const GlobalProvider = ({ children }) => {
     return totalIncome;
   };
 
-    //! calculate expenses
+  //! calculate expenses
   // yeni bir gider eklemek için kullanılır
   const addExpense = async (expense) => {
     const response = await axios
@@ -80,6 +80,21 @@ export const GlobalProvider = ({ children }) => {
     return totalExpense;
   };
 
+  // toplam bakiye miktarını verir
+  const totalBalance = () => {
+    return totalIncome() - totalExpenses();
+  };
+
+  // gelir ve gider verilerini birleştirerek, tarih sırasına göre en yeni tarihten en eski tarihe sıralanmış bir işlem geçmişi oluşturur
+  const transactionHistory = () => {
+    const history = [...incomes, ...expenses];
+    history.sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+
+    return history.slice(0, 3);
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -92,7 +107,11 @@ export const GlobalProvider = ({ children }) => {
         getExpenses,
         expenses,
         deleteExpense,
-        totalExpenses
+        totalExpenses,
+        totalBalance,
+        transactionHistory,
+        error,
+        setError
       }}
     >
       {children}
