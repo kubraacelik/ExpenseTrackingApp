@@ -21,3 +21,18 @@ The application has a simple and user-friendly interface, allowing users to easi
 - Node.js and MongoDB
 - Express.js
 - Axios
+
+## Run the Application
+
+Start the back-end server:
+
+```bash
+cd backend
+npm start
+```
+Start the front-end application:
+
+```bash
+cd frontend
+npm start
+```
