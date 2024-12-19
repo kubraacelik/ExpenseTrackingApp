@@ -8,13 +8,13 @@ function Orb() {
   // Burada moveOrb adında bir animasyon tanımlanmıştır
   const moveOrb = keyframes`
     0%{
-      transform: translate(0, 0);
+      transform: translate(0, 0); //Animasyonun başlangıç noktasıdır. Burada öğe hiçbir yere hareket etmez
     }
     50%{
-      transform: translate(${width}px, ${height/2}px);
+      transform: translate(${width}px, ${height/2}px); //Animasyonun orta noktasında öğe, ekran genişliği kadar sağa, ekranın yarı yüksekliği kadar aşağı hareket eder.
     }
     100%{
-      transform: translate(0, 0);
+      transform: translate(0, 0); //Animasyonun bitiş noktasıdır. Öğe, tekrar başlangıç noktasına geri döner.
     }
   `;
 
@@ -30,7 +30,7 @@ function Orb() {
     animation: ${moveOrb} 7s alternate linear infinite;
   `;
 
-  return <OrbStyled>hello</OrbStyled>;
+  return <OrbStyled></OrbStyled>;
 }
 
 export default Orb;

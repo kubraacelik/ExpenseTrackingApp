@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const db = async () => {
   try {
-    mongoose.set("strictQuery", false);
+    mongoose.set("strictQuery", false); //Mongoose'un sorgu davranışını yapılandırır.
     await mongoose.connect(process.env.MONGO_URL);
     console.log("Db Connected");
   } catch (error) {

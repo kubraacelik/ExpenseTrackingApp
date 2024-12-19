@@ -10,10 +10,11 @@ const PORT = process.env.PORT;
 
 // middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors()); //tüm kaynaklardan gelen isteklere izin verir.
 
 // routes
-// belirli bir dizindeki (./routes dizini) rotaları uygulamaya eklemeye yarar
+// belirli bir dizindeki (./routes dizini) rotaları uygulamaya eklemeye yarar.
+//yani bunun dinamik versiyonu => app.use("/api/v1/auth", authRoute);
 readdirSync("./routes").map((route) =>
   app.use("/api/v1", require("./routes/" + route))
 );
