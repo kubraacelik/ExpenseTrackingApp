@@ -3,10 +3,10 @@ Expense Tracker is a web application that allows users to keep track of their da
 
 The application has a simple and user-friendly interface, allowing users to easily enter and view their financial data.
 
-![Ekran görüntüsü 2024-11-11 200645](https://github.com/user-attachments/assets/2bec5daf-1c99-4f5d-80dd-652b60364f1f)
-![Ekran görüntüsü 2024-11-11 200949](https://github.com/user-attachments/assets/b7ba5cba-2c4f-4884-98e4-8b9355058b53)
-![Ekran görüntüsü 2024-11-11 201028](https://github.com/user-attachments/assets/648a84a8-8ffa-4ae7-8d99-4969e17b64c5)
-![Ekran görüntüsü 2024-11-11 201039](https://github.com/user-attachments/assets/7bbd5ac7-fa3f-4c68-8b43-1e757675a223)
+![Ekran görüntüsü 2024-12-30 141940](https://github.com/user-attachments/assets/53f17781-f2c7-4ccc-9e12-195b3ff44849)
+![Ekran görüntüsü 2024-12-30 141847](https://github.com/user-attachments/assets/b5311328-6dd0-42db-8cb1-784d2ac92d6a)
+![Ekran görüntüsü 2024-12-30 141657](https://github.com/user-attachments/assets/74fc9c16-94b5-4a0c-9f18-e42f21b29322)
+![Ekran görüntüsü 2024-12-30 141728](https://github.com/user-attachments/assets/22b3b797-6ff6-4691-95f5-76588d36c001)
 
 ## User Features
 - Add Expenditure: Users can add new expenditures with expenditure title, amount, category, description and date.
