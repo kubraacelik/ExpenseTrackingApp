@@ -16,7 +16,7 @@ function Income() {
   return (
     <IncomeStyled>
       <InnerLayout>
-        <h1>Income</h1>
+        <h1>Incomes</h1>
         <h2 className="total-income">
           Total Income: <span>${totalIncome()}</span>
         </h2>
